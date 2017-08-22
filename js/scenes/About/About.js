@@ -13,7 +13,7 @@ import { styles } from './styles';
 const About = ({ data }) => (
   <View>
     <View
-      style={styles.container}
+      style={styles.headerContainer}
     >
       <Image
         style={styles.headerImage}
@@ -21,19 +21,24 @@ const About = ({ data }) => (
       />
     </View>
     <View
-      style={styles.list}
+      style={styles.headerInfo}
     >
-      <FlatList
-        data={data}
-        renderItem={({item}) =>
-          <View style={styles.codeItem}>
-            <Text>{item.title}</Text>
-            <Text>{item.description}</Text>            
-          </View>  
-        }
-        keyExtractor={(item, index) => index}
-      />
-    </View>
+    <Text>R10 is a conference that focuses on just about any topic related to dev.</Text>
+    <Text>Date & Venue</Text>
+    <Text>The R10 conference will take place on Tuesday, June 27, 2017 in Vancouver, BC.</Text>
+    <Text>Code of Conduct</Text>
+    </View>  
+    <FlatList
+      style={styles.list}
+      data={data}
+      renderItem={({item}) =>
+        <View style={styles.codeItem}>
+          <Text>{item.title}</Text>
+          <Text>{item.description}</Text>            
+        </View>  
+      }
+      keyExtractor={(item, index) => index}
+    />
   </View>  
 );
 

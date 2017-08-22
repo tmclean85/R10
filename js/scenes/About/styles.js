@@ -2,19 +2,22 @@ import { StyleSheet } from 'react-native';
 
 
 export const styles = StyleSheet.create({
-  page: {
-  
-  },
-  container: {
+  headerContainer: {
     flex: 1,
-    height: 100,
+    height: 50,
     width: 225,
     justifyContent: 'center',
+    borderBottomWidth: 1,
+    borderColor:'black'
   },
   headerImage: {
     height: 50,
     width: 200,
     marginTop: 150
+
+  },
+  headerInfo: {
+    height: 50
   },
   list: {
     marginTop: 100,
