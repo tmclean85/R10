@@ -38,9 +38,7 @@ class AboutContainer extends Component {
   
   
   render() {
-    // if(this.state.loading = true) {
-    //   return Loader;
-    // } else {
+
     return <About data={this.state.data} />;
 
   }
