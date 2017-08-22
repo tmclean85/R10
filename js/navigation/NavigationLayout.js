@@ -45,6 +45,45 @@ class NavigationLayout extends Component {
             defaultRouteConfig={defaultRouteConfig}
           />
         </TabItem>
+        <TabItem
+          id="schedule"
+          title="Schedule"
+          renderIcon={(isSelected) => this.renderIcon("ios-calendar", isSelected)}
+          renderTitle={this.renderTitle}
+        >
+          <StackNavigation
+            id="schedule"
+            navigatorUID="schedule"
+            initialRoute={Router.getRoute('schedule')}
+            defaultRouteConfig={defaultRouteConfig}            
+          />
+        </TabItem>
+        <TabItem
+          id="favs"
+          title="Favs"
+          renderIcon={(isSelected) => this.renderIcon("ios-calendar", isSelected)}
+          renderTitle={this.renderTitle}          
+        >
+          <StackNavigation
+            id="favs"
+            navigatorUID="favs"
+            initialRoute={Router.getRoute('favs')}
+            defaultRouteConfig={defaultRouteConfig}
+          />
+        </TabItem>
+        <TabItem
+          id="sessions"
+          title="Sessions"
+          renderIcon={(isSelected) => this.renderIcon("ios-calendar", isSelected)}
+          renderTitle={this.renderTitle}                    
+        >
+          <StackNavigation
+            id="sessions"
+            navigatorUID="sessions"
+            initialRoute={Router.getRoute('sessions')}
+            defaultRouteConfig={defaultRouteConfig}            
+          />
+        </TabItem>
       </TabNavigation>
     );
   }
