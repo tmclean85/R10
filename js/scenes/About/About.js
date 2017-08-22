@@ -35,7 +35,7 @@ const About = ({ data }) => (
         <View style={styles.codeItem}>
           <Text>{item.title}</Text>
           <Text>{item.description}</Text>            
-        </View>  
+        </View>
       }
       keyExtractor={(item, index) => index}
     />
