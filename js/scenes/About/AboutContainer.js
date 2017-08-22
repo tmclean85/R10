@@ -1,4 +1,9 @@
 import React, { Component } from 'react';
+import {
+  createRouter,
+  NavigationProvider,
+  StackNavigation,
+} from '@expo/ex-navigation';
 import About from './About';
 
 class AboutContainer extends Component {
@@ -6,7 +11,14 @@ class AboutContainer extends Component {
   constructor() {
     super();
     this.state = {
-      data: []
+      data: [],
+      loading: true
+    }
+  }
+
+  static route = {
+    navigationBar: {
+      title: 'About',
     }
   }
 
@@ -26,9 +38,9 @@ class AboutContainer extends Component {
   
   
   render() {
-    return <About 
-             data={this.state.data}
-           />;
+
+    return <About data={this.state.data} />;
+
   }
 }
 
