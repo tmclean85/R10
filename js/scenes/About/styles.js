@@ -2,9 +2,12 @@ import { StyleSheet } from 'react-native';
 
 
 export const styles = StyleSheet.create({
+  page: {
+  
+  },
   container: {
     flex: 1,
-    height: 75,
+    height: 100,
     width: 225,
     justifyContent: 'center',
   },
@@ -13,9 +16,11 @@ export const styles = StyleSheet.create({
     width: 200,
     marginTop: 150
   },
-  border: {
-    flex: 1,
-    height: StyleSheet.hairlineWidth,
-    backgroundColor: 'black'
+  list: {
+    marginTop: 100,
+  },
+  codeItem: {
+    marginTop: 25,
+    marginBottom: 25
   }
 });

@@ -4,25 +4,37 @@ import {
   View,
   Image,
   Text,
-  StyleSheet
+  StyleSheet,
+  FlatList
 } from 'react-native';
 
 import { styles } from './styles';
 
-const About = () => (
-  <View 
-    style={styles.container}
-    ItemSeparatorComponent={() => {
-      <View
-        style={styles.border}
+const About = ({ data }) => (
+  <View>
+    <View
+      style={styles.container}
+    >
+      <Image
+        style={styles.headerImage}
+        source={require('../../assets/images/r10_logo.png')}
       />
-    }}
-  >
-    <Image
-      style={styles.headerImage}
-      source={require('../../assets/images/r10_logo.png')}
-    />
-  </View>    
+    </View>
+    <View
+      style={styles.list}
+    >
+      <FlatList
+        data={data}
+        renderItem={({item}) =>
+          <View style={styles.codeItem}>
+            <Text>{item.title}</Text>
+            <Text>{item.description}</Text>            
+          </View>  
+        }
+        keyExtractor={(item, index) => index}
+      />
+    </View>
+  </View>  
 );
 
 About.propTypes = {
