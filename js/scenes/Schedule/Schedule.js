@@ -11,17 +11,17 @@ import { styles } from './styles';
 
 const Schedule = ({ data }) => {
   return (
-    <View style={styles.container}>
+    <View>
       <SectionList
         keyExtractor={(item) => (item.session_id)}
-        renderItem={(item) => (
+        renderItem={({ item }) => (
           <View>
             <Text>{item.title}</Text>
             <Text>{item.location}</Text>
           </View>
         )}
-        renderSectionHeader={(dateItem) => (
-          <Text>{Moment.unix(dateItem.start_time).format('h:mm A')}</Text>
+        renderSectionHeader={(item) => (
+          <Text>{Moment.unix(item.section.title).format('h:mm A')}</Text>
         )}
         sections={data}
       />
