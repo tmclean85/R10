@@ -1,7 +1,8 @@
 const SCHEDULE_DATA = "SCHEDULE_DATA";
 
 const initialState = {
-  data: []
+  data: [],
+  loading: true
 }
 
 export function loadSchedule(schedule) {
@@ -27,7 +28,8 @@ export function ScheduleRenderer(state = initialState, action) {
     case SCHEDULE_DATA:
       return {
         ...state,
-        data: action.payload
+        data: action.payload,
+        loading: false
       };
       default:
         return state;
