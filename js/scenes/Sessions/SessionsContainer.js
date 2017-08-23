@@ -16,7 +16,6 @@ class SessionsContainer extends Component {
       title: 'Sessions',
     }
   }
-
   render() {
     return (<Sessions />);
   }

@@ -48,7 +48,7 @@ class NavigationLayout extends Component {
         <TabItem
           id="schedule"
           title="Schedule"
-          renderIcon={(isSelected) => this.renderIcon("ios-calendar", isSelected)}
+          renderIcon={(isSelected) => this.renderIcon("ios-map", isSelected)}
           renderTitle={this.renderTitle}
         >
           <StackNavigation
@@ -61,7 +61,7 @@ class NavigationLayout extends Component {
         <TabItem
           id="favs"
           title="Favs"
-          renderIcon={(isSelected) => this.renderIcon("ios-calendar", isSelected)}
+          renderIcon={(isSelected) => this.renderIcon("ios-heart", isSelected)}
           renderTitle={this.renderTitle}          
         >
           <StackNavigation
@@ -74,7 +74,7 @@ class NavigationLayout extends Component {
         <TabItem
           id="sessions"
           title="Sessions"
-          renderIcon={(isSelected) => this.renderIcon("ios-calendar", isSelected)}
+          renderIcon={(isSelected) => this.renderIcon("ios-information-circle", isSelected)}
           renderTitle={this.renderTitle}                    
         >
           <StackNavigation
