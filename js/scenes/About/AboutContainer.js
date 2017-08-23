@@ -14,31 +14,11 @@ class AboutContainer extends Component {
     this.props.dispatch(getConductData()); 
   }
 
-  // constructor() {
-  //   super();
-  //   this.state = {
-  //     data: [],
-  //     loading: true
-  //   }
-  // }
-
   static route = {
     navigationBar: {
       title: 'About',
     }
   }
-
-  // componentDidMount() {
-  //   let endpoint = 'https://r10app-95fea.firebaseio.com/code_of_conduct.json';
-  //   fetch(endpoint)
-  //     .then(response => response.json())
-  //     .then(data => {
-  //       this.setState({ data });
-  //     })
-  //     .catch(error => console.log(`Error fetching JSON: ${error}`));    
-  // }
-
-  
   
   render() {
     return <About data={this.props.data} />;

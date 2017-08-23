@@ -31,7 +31,8 @@ export function ConductRenderer(state = initialState, action) {
     case CONDUCT_DATA:
       return {
         ...state,
-        data: action.payload
+        data: action.payload,
+        loading: false
       };
       default: 
         return state;
