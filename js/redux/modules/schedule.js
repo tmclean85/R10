@@ -1,3 +1,6 @@
+import { formatSessionData } from '../../lib/dataFormatHelper';
+
+
 const SCHEDULE_DATA = "SCHEDULE_DATA";
 
 const initialState = {
