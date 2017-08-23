@@ -30,7 +30,7 @@ class NavigationLayout extends Component {
       <TabNavigation
         id="tabMain"
         initialTab="about"
-        tabBarColor="yellow"
+        tabBarColor="grey"
       >
         <TabItem
           id="about"
