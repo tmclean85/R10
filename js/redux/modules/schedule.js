@@ -1,4 +1,4 @@
-import { formatSessionData } from '../../lib/dataFormatHelper';
+import { formatSessionData } from '../../lib/dataFormatHelpers';
 
 
 const SCHEDULE_DATA = "SCHEDULE_DATA";

@@ -7,6 +7,7 @@ import {
 import { ActivityIndicator } from 'react-native';
 import { connect } from 'react-redux';
 import Schedule from './Schedule';
+import { goToSession } from '../../lib/navigationHelpers';
 import { getScheduleData } from '../../redux/modules/schedule';
 
 
@@ -14,6 +15,10 @@ class ScheduleContainer extends Component {
 
   componentDidMount() {
     this.props.dispatch(getScheduleData());
+  }
+
+  singleSession(item) {
+    goToSession("schedule", item);
   }
 
   static route = {
@@ -28,7 +33,10 @@ class ScheduleContainer extends Component {
         <ActivityIndicator animating={true} size="small" color="black" />
       )
     } else {
-    return (<Schedule data={this.props.data} />);
+    return (<Schedule 
+             data={this.props.data} 
+             singleSession={this.singleSession}
+            />);
     }
   }
 }

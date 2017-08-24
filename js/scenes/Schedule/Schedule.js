@@ -4,21 +4,23 @@ import Moment from 'moment';
 import {
   View,
   Text,
-  SectionList
+  SectionList,
+  TouchableOpacity
 } from 'react-native';
-
 import { styles } from './styles';
 
-const Schedule = ({ data }) => {
+const Schedule = ({ data, singleSession }) => {
   return (
     <View>
       <SectionList
         keyExtractor={(item) => (item.session_id)}
         renderItem={({ item }) => (
-          <View>
-            <Text>{item.title}</Text>
-            <Text>{item.location}</Text>
-          </View>
+          <TouchableOpacity onPress={() => singleSession(item)} >
+            <View>
+              <Text>{item.title}</Text>
+              <Text>{item.location}</Text>
+            </View>
+          </TouchableOpacity>
         )}
         renderSectionHeader={(item) => (
           <Text>{Moment.unix(item.section.title).format('h:mm A')}</Text>
