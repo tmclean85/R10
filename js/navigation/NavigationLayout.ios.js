@@ -5,9 +5,11 @@ import {
   TabNavigation,
   TabNavigationItem as TabItem,
 } from '@expo/ex-navigation';
+import LinearGradient from 'react-native-linear-gradient';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {
-  Text
+  Text,
+  StyleSheet
 } from 'react-native';
 
 import Router from './routes'
@@ -15,9 +17,21 @@ import { colors, typography } from '../config/styles'
 
 const defaultRouteConfig = {
   navigationBar: {
-    tintColor: 'red'
-  },
-
+    tintColor: colors.white,
+    titleStyle: {
+      fontFamily: typography.fontMainLight
+    },
+    renderBackground: gradient = () => {
+      return (
+        <LinearGradient
+          start={{ x: 0.0, y: 1.0 }} 
+          end={{ x: 1.0, y: 1.0 }}
+          colors={[colors.red, colors.purple]}
+          style={StyleSheet.absoluteFill}
+        />
+      )  
+    }
+  }
 };
 
 class NavigationLayout extends Component {
@@ -28,7 +42,7 @@ class NavigationLayout extends Component {
       <TabNavigation
         id="tabMain"
         initialTab="about"
-        tabBarColor="grey"
+        tabBarColor="#000"
       >
         <TabItem
           id="schedule"
@@ -92,14 +106,13 @@ class NavigationLayout extends Component {
   }
 
   renderTitle(isSelected, title) {
-    const color = isSelected ? 'blue' : '#999999';
-    titles = {
-      color: color,
+    const titleStyle = {
+      color: isSelected ? 'white' : '#999999',
       fontFamily: typography.fontMain,
-      fontSize: typography.baseSize
+      fontSize: 14
     }
     return (
-      <Text>{title}</Text>
+      <Text style={titleStyle}>{title}</Text>
     )  
     //return text component
   }

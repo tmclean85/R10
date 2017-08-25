@@ -10,7 +10,10 @@ export const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     borderBottomWidth: 1.5,
-    margin: 30,
+    marginLeft: 30,
+    marginRight: 30,
+    marginTop: 30,
+    marginBottom: 10,
     borderColor: '#e6e6e6'
   },
   headerImage: {
@@ -20,7 +23,9 @@ export const styles = StyleSheet.create({
     alignItems: 'center'
   },
   headerInfo: {
-    padding: 30
+    paddingLeft: 30,
+    paddingRight: 30
+
   },
   topText: {
     color: '#000',
@@ -52,7 +57,6 @@ export const styles = StyleSheet.create({
   list: {
     paddingLeft: 30,
     paddingRight: 30,
-    paddingTop: 10,
     paddingBottom: 10
   },
   box: {

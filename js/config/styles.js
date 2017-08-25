@@ -5,7 +5,12 @@
 import { Platform, StyleSheet } from 'react-native';
 
 export const colors = {
-  red: '#CF392A'
+  red: '#CF392A',
+  mediumGray: '#999999',
+  lightGray: '#e6e6e6',
+  blue: '#8797D6',
+  purple: '#9963ea',
+  white: 'white'  
 };
 
 export const typography = {
