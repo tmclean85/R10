@@ -17,13 +17,17 @@ const Schedule = ({ data, singleSession }) => {
         renderItem={({ item }) => (
           <TouchableOpacity onPress={() => singleSession(item)} >
             <View>
-              <Text>{item.title}</Text>
-              <Text>{item.location}</Text>
+              <View style={styles.sectionContent}>
+                <Text style={styles.titleText}>{item.title}</Text>
+              </View>  
+              <View style={styles.sectionFooter}>
+                <Text style={styles.locationText}>{item.location}</Text>
+              </View>  
             </View>
           </TouchableOpacity>
         )}
         renderSectionHeader={(item) => (
-          <Text>{Moment.unix(item.section.title).format('h:mm A')}</Text>
+          <Text style={styles.sectionHeader}>{Moment.unix(item.section.title).format('h:mm A')}</Text>
         )}
         sections={data}
       />
