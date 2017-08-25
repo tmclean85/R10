@@ -43,7 +43,7 @@ class NavigationLayout extends Component {
             defaultRouteConfig={defaultRouteConfig}
           />
         </TabItem>
-        {/* <TabItem
+        <TabItem
           id="map"
           title="Map"
           renderIcon={(isSelected) => this.renderIcon("ios-map", isSelected)}
@@ -55,7 +55,7 @@ class NavigationLayout extends Component {
             initialRoute={Router.getRoute('map')}
             defaultRouteConfig={defaultRouteConfig}            
           />
-        </TabItem> */}
+        </TabItem>
         <TabItem
           id="favs"
           title="Favs"
