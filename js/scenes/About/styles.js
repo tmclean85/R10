@@ -41,7 +41,13 @@ export const styles = StyleSheet.create({
   },  
   conductTitle: {
     color: '#9963ea',
-    fontSize: 16
+    fontSize: 18
+  },
+  conductBody: {
+    marginTop: 10,
+    marginBottom: 10,
+    fontSize: 16,
+    fontFamily: typography.fontMain
   },
   list: {
     paddingLeft: 30,

@@ -26,18 +26,18 @@ class AboutContainer extends Component {
   }
 
   animator = {
-    duration: 1000,
+    duration: 500,
     update: {
-      type: 'spring',
-      springDampen: 0.2
+      type: 'easeInEaseOut',
     }
   }
 
-  itemExpander(id) {
-    LayoutAnimation.configureNext(this.animator)
-    if (id === this.state.shown) {
-      id = null 
-      this.setState({shown: id});
+  itemExpander(i) {
+    LayoutAnimation.configureNext(this.animator);
+    if (this.state.shown === i) {
+      this.setState({shown: null})
+    } else {  
+      this.setState({shown: i});
     }  
   }
 
@@ -55,7 +55,7 @@ class AboutContainer extends Component {
     } else {
       return <About 
                data={this.props.data} 
-               itemExpander={(id) => this.itemExpander}
+               itemExpander={(id) => this.itemExpander(id)}
                shown={this.state.shown}
              />;
     }

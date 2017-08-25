@@ -49,18 +49,18 @@ const About = ({ data, itemExpander, shown }) => (
                   {item.title}
                 </Text>
                 {
-                  (i === shown) &&
-                    <Text>
-                      {item.description}
-                    </Text>
+                  (i === shown) 
+                    && <Text style={styles.conductBody}>
+                       {item.description}
+                      </Text>
                 }
               </TouchableOpacity>  
             </View>
             ))
         }
     </View>
-    <View style={{ marginTop: 20, paddingLeft: 30, paddingBottom: 10, fontSize: 16 }}>
-      <Text>
+    <View style={{ marginTop: 20, paddingLeft: 30, paddingBottom: 10 }}>
+      <Text style={{ fontSize: 18 }}>
         © RED Academy 2017
       </Text>  
     </View>  
