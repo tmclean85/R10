@@ -6,8 +6,10 @@ import {
   Image,
   Text,
   StyleSheet,
-  FlatList
+  FlatList,
+  Platform
 } from 'react-native';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 import { styles } from './styles';
 
@@ -17,6 +19,7 @@ const About = ({ data }) => (
       <View
         style={styles.headerContainer}
       >
+        {/* <Icon name={Platform.OS === 'ios' ? 'ios-heart' : 'md-heart'} style={Platform.OS === 'android' ? {color: 'red'} : {color: 'blue'}} size={16} /> */}
         <Image
           style={styles.headerImage}
           source={require('../../assets/images/r10_logo.png')}
@@ -41,8 +44,8 @@ const About = ({ data }) => (
         }
         keyExtractor={(item, index) => index}
       />
-    </View> 
-  </ScrollView>   
+    </View>
+  </ScrollView>
 );
 
 About.propTypes = {

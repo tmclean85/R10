@@ -2,16 +2,16 @@ import React, { Component } from 'react';
 //ex-nav imports
 import {
   StackNavigation,
-  TabNavigation,
-  TabNavigationItem as TabItem,
+  DrawerNavigation,
+  DrawerNavigationItem as DrawerItem,
 } from '@expo/ex-navigation';
 import Icon from 'react-native-vector-icons/Ionicons';
 import {
   Text
 } from 'react-native';
 
-import Router from './routes'
-import { colors, typography } from '../config/styles'
+import Router from './routes';
+import { colors, typography } from '../config/styles';
 
 const defaultRouteConfig = {
   navigationBar: {
@@ -25,14 +25,12 @@ const defaultRouteConfig = {
 class NavigationLayout extends Component {
 
   render() {
-    //render tab bar component with nested tab items and stacknavs
     return (
-      <TabNavigation
+      <DrawerNavigation
         id="tabMain"
-        initialTab="about"
-        tabBarColor="grey"
+        initialItem="about"
       >
-        <TabItem
+        <DrawerItem
           id="about"
           title="About"
           renderIcon={(isSelected) => this.renderIcon("ios-calendar", isSelected)}
@@ -44,8 +42,8 @@ class NavigationLayout extends Component {
             initialRoute={Router.getRoute('about')}
             defaultRouteConfig={defaultRouteConfig}
           />
-        </TabItem>
-        <TabItem
+        </DrawerItem>
+        <DrawerItem
           id="schedule"
           title="Schedule"
           renderIcon={(isSelected) => this.renderIcon("ios-map", isSelected)}
@@ -57,8 +55,8 @@ class NavigationLayout extends Component {
             initialRoute={Router.getRoute('schedule')}
             defaultRouteConfig={defaultRouteConfig}            
           />
-        </TabItem>
-        <TabItem
+        </DrawerItem>
+        <DrawerItem
           id="favs"
           title="Favs"
           renderIcon={(isSelected) => this.renderIcon("ios-heart", isSelected)}
@@ -70,31 +68,31 @@ class NavigationLayout extends Component {
             initialRoute={Router.getRoute('favs')}
             defaultRouteConfig={defaultRouteConfig}
           />
-        </TabItem>
-        <TabItem
+        </DrawerItem>
+        <DrawerItem
           id="sessions"
           title="Sessions"
           renderIcon={(isSelected) => this.renderIcon("ios-information-circle", isSelected)}
-          renderTitle={this.renderTitle}                    
+          renderTitle={this.renderTitle}
         >
           <StackNavigation
             id="sessions"
             navigatorUID="sessions"
             initialRoute={Router.getRoute('sessions')}
-            defaultRouteConfig={defaultRouteConfig}            
+            defaultRouteConfig={defaultRouteConfig}
           />
-        </TabItem>
-      </TabNavigation>
+        </DrawerItem>
+      </DrawerNavigation>
     );
   }
 
   renderIcon(iconName, isSelected) {
-    const color = isSelected ? 'white' : '#999999';
+    const color = isSelected ? 'black' : '#999999';
     return <Icon name={iconName} size={24} color={color} />
   }
 
   renderTitle(isSelected, title) {
-    const color = isSelected ? 'blue' : '#999999';
+    const color = isSelected ? 'black' : '#999999';
     titles = {
       color: color,
       fontFamily: typography.fontMain,
@@ -103,10 +101,7 @@ class NavigationLayout extends Component {
     return (
       <Text>{title}</Text>
     )  
-    //return text component
   }
-
-
 
 }
 
