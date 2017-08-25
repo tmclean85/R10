@@ -19,7 +19,7 @@ class SessionsContainer extends Component {
 
   static route = {
     navigationBar: {
-      title: 'Sessions',
+      title: 'Session',
     }
   }
   render() {

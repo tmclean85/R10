@@ -7,9 +7,6 @@ import {
 import Favs from './Favs';
 
 class FavsContainer extends Component {
-  constructor() {
-    super();
-  }
 
   static route = {
     navigationBar: {
