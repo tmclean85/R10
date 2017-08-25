@@ -4,14 +4,14 @@ import { colors, typography } from '../../config/styles';
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    margin: 10,
-    marginTop: 20,
   },
   headerContainer: {
     flexDirection: 'row',
-    margin: 30,
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    borderBottomWidth: 1.5,
+    margin: 30,
+    borderColor: '#e6e6e6'
   },
   headerImage: {
     flexDirection: 'row',
@@ -20,22 +20,43 @@ export const styles = StyleSheet.create({
     alignItems: 'center'
   },
   headerInfo: {
-    height: 50
+    padding: 30
+  },
+  topText: {
+    color: '#000',
+    fontSize: 25,    
+    fontFamily: typography.fontMain    
   },
   text: {
     fontWeight: 'bold',
-    fontSize: 18,
     alignItems: 'flex-start',
-    margin: 10,
     fontFamily: typography.fontMain
   },
 
   headerText: {
+    fontSize: 16,        
     fontWeight: 'bold',
-    color: '#9963ea',
+    color: '#000',
     fontFamily: typography.fontMain
   },  
-  list: {
-    marginTop: 100,
+  conductTitle: {
+    color: '#9963ea',
+    fontSize: 18
   },
+  conductBody: {
+    marginTop: 10,
+    marginBottom: 10,
+    fontSize: 16,
+    fontFamily: typography.fontMain
+  },
+  list: {
+    paddingLeft: 30,
+    paddingRight: 30,
+    paddingTop: 10,
+    paddingBottom: 10
+  },
+  box: {
+    paddingTop: 10,
+    paddingBottom: 10
+  }
 });
