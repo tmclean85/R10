@@ -4,21 +4,17 @@ import {
   NavigationProvider,
   StackNavigation,
 } from '@expo/ex-navigation';
+import { connect } from 'react-redux';
 import { ActivityIndicator } from 'react-native';
 import Sessions from './Sessions';
-
-import { getSessionData } from '../../redux/modules/sessions';
+import { getSpeakerData } from '../../redux/modules/sessions';
 
 
 class SessionsContainer extends Component {
   
   componentDidMount() {
-    const theSpeaker = this.props.sessionData.item.speaker;
-    this.props.dispatch(getSpeakerData(theSpeaker));
-  }
-
-  singleSpeaker(speakerData) {
-    goToSpeaker(speakerData);
+    console.log(getSpeakerData(this.props.sessionData.speaker));
+    this.props.dispatch(getSpeakerData(this.props.sessionData.speaker));
   }
 
   static route = {
@@ -29,22 +25,24 @@ class SessionsContainer extends Component {
   render() {
     if(this.props.loading) {
       return (
-        <ActivityIndicator animating={true} size="small" color="black" />        
+        <ActivityIndicator animating={true} size="small" color="black" />
       )
     } else {
-        return (
-          <Sessions
-            sessionData={this.props.sessionData.item}
-            speakerData={this.props.speakerData}
-            goToSpeaker={this.singleSpeaker}
-          />);      
+      console.log(this.props.speakerData, this.props.sessionData.item)
+      return (
+        <Sessions
+          sessionData={this.props.sessionData}
+          speakerData={this.props.speakerData}
+        />
+      );
     }
   }
+
 }
 
 function mapStateToProps(state) {
   return {
-    speakerData: state.session.speaker,
+    speakerData: state.session.speakerData,
     loading: state.session.loading
   }
 }

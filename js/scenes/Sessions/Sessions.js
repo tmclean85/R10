@@ -5,31 +5,41 @@ import {
   View,
   Text,
   FlatList,
-  Image
+  Image,
+  Button,
+  TouchableOpacity,
 } from 'react-native';
-
+import { goToSpeaker } from '../../lib/navigationHelpers';
 import { styles } from './styles';
 
-const Sessions = ({ sessionData, speakerData }) => {
+const Sessions = ({ sessionData, speakerData, singleSpeaker }) => {
   return (
     <View>
       <View>
         <Text>{sessionData.location}</Text>
         <Text>{sessionData.title}</Text>
-        <Text>{Moment.unix(sessionData.start_time).format('h:mm A')}</Text>   
+        <Text>{Moment.unix(sessionData.start_time).format('h:mm A')}</Text>
         <Text>{sessionData.description}</Text>
         <Text>Presented by:</Text>
       </View>
-      {(speakerData)
-        ? <View>
-            <Text>{speakerData.name}</Text>
-            <Image
-              source={{ uri: speakerData.image }}
-            />
-          </View>
-        : null  
-      }
-    </View>  
+      <TouchableOpacity onPress={() => goToSpeaker(speakerData)} >
+        <View>
+          <Text>{speakerData.name}</Text>
+          <Image
+            style={styles.speakerAvatar}
+            source={{ uri: speakerData.image }}
+          />        
+        </View>  
+      </TouchableOpacity>  
+      <View>
+      <Button
+        
+        title=""
+        color=""
+        accessibilityLabel=""
+      />
+      </View>  
+    </View>
   )
 }
 

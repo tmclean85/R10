@@ -1,21 +1,21 @@
 import { formatSessionData } from '../../lib/dataFormatHelpers';
 
 
-const SCHEDULE_DATA = "SCHEDULE_DATA";
+const SESSION_DATA = "SESSION_DATA";
 
 const initialState = {
-  data: [],
+  sessionData: [],
   loading: true
 }
 
 export function loadSchedule(schedule) {
   return {
-    type: SCHEDULE_DATA,
+    type: SESSION_DATA,
     payload: schedule
   }
 }
 
-export function getScheduleData() {
+export function getSessionData() {
   return function (dispatch) {
     fetch('https://r10app-95fea.firebaseio.com/sessions.json')
       .then(response => response.json())
@@ -29,10 +29,10 @@ export function getScheduleData() {
 
 export function ScheduleRenderer(state = initialState, action) {
   switch(action.type) {
-    case SCHEDULE_DATA:
+    case SESSION_DATA:
       return {
         ...state,
-        data: action.payload,
+        sessionData: action.payload,
         loading: false
       };
       default:

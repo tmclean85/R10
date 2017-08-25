@@ -1,22 +1,22 @@
 import { formatDataObject } from '../../lib/dataFormatHelpers';
 
-const SESSION_DATA = "SESSION_DATA";
+const SPEAKER_DATA = "SPEAKER_DATA";
 
 const initialState = {
   loading: true,
-  speaker: []  
+  speakerData: {}
 }
 
-export function loadSpeaker(sessionData) {
+export function loadSpeaker(speakerData) {
   return {
-    type: SESSION_DATA,
-    payload: sessionData
+    type: SPEAKER_DATA,
+    payload: speakerData
   }
 }
 
-export function getSessionData(speakerID) {
+export function getSpeakerData(speakerId) {
   return function (dispatch) {
-    let endpoint = `https://r10app-95fea.firebaseio.com/speakers.json?orderBy=%22speaker_id%22&equalTo=%22${speakerId}%22`;
+    let endpoint = `https://r10app-95fea.firebaseio.com/speakers.json?orderBy="speaker_id"&equalTo="${speakerId}"`
     fetch(endpoint)
       .then(response => response.json())
       .then(data => {
@@ -27,12 +27,12 @@ export function getSessionData(speakerID) {
   }
 }
 
-export function SessionRenderer(state = initialState, action) {
+export function SpeakerRenderer(state = initialState, action) {
   switch(action.type) {
-    case SESSION_DATA:
+    case SPEAKER_DATA:
       return {
         ...state,
-        speaker: action.payload,
+        speakerData: action.payload,
         loading: false
       };
       default:
