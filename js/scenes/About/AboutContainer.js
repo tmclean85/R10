@@ -5,14 +5,40 @@ import {
   StackNavigation,
 } from '@expo/ex-navigation';
 import { connect } from 'react-redux';
-import { ActivityIndicator } from 'react-native';
+import { 
+  ActivityIndicator,
+  LayoutAnimation        
+} from 'react-native';
 import About from './About';
 import { getConductData } from '../../redux/modules/conduct';
 
 class AboutContainer extends Component {
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      shown: null
+    }
+  }
+
   componentDidMount() {
     this.props.dispatch(getConductData()); 
+  }
+
+  animator = {
+    duration: 1000,
+    update: {
+      type: 'spring',
+      springDampen: 0.2
+    }
+  }
+
+  itemExpander(id) {
+    LayoutAnimation.configureNext(this.animator)
+    if (id === this.state.shown) {
+      id = null 
+      this.setState({shown: id});
+    }  
   }
 
   static route = {
@@ -27,7 +53,11 @@ class AboutContainer extends Component {
         <ActivityIndicator animating={true} size="small" color="black" />
       )
     } else {
-      return <About data={this.props.data} />;
+      return <About 
+               data={this.props.data} 
+               itemExpander={(id) => this.itemExpander}
+               shown={this.state.shown}
+             />;
     }
   }
 }

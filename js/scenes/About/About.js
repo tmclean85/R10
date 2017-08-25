@@ -7,13 +7,14 @@ import {
   Text,
   StyleSheet,
   FlatList,
-  Platform
+  Platform,
+  TouchableOpacity
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 import { styles } from './styles';
 
-const About = ({ data }) => (
+const About = ({ data, itemExpander, shown }) => (
   <ScrollView>
     <View style={styles.container}>
       <View
@@ -29,22 +30,40 @@ const About = ({ data }) => (
         style={styles.headerInfo}
       >
         <Text style={styles.headerText}>R10 is a conference that focuses on just about any topic related to dev.</Text>
-        <Text style={styles.text}>Date & Venue</Text>
+        <View style={styles.box}>
+          <Text style={styles.topText}>Date & Venue</Text>
+        </View>
         <Text style={styles.headerText}>The R10 conference will take place on Tuesday, June 27, 2017 in Vancouver, BC.</Text>
-        <Text style={styles.text}>Code of Conduct</Text>
+        <View style={styles.box}>
+          <Text style={styles.topText}>Code of Conduct</Text>
+        </View>
       </View>
-      <FlatList
-        style={styles.list}
-        data={data}
-        renderItem={({item}) =>
-          <View style={styles.container}>
-            <Text>{item.title}</Text>
-            <Text>{item.description}</Text>            
-          </View>
+        {
+          data.map((item, i) => (
+            <View key={i} style={styles.list}>
+              <TouchableOpacity 
+                onPress={() => itemExpander(i)}
+              >
+                <Text style={styles.conductTitle}>
+                  { (i === shown) ? '- ' : '+ ' } 
+                  {item.title}
+                </Text>
+                {
+                  (i === shown) &&
+                    <Text>
+                      {item.description}
+                    </Text>
+                }
+              </TouchableOpacity>  
+            </View>
+            ))
         }
-        keyExtractor={(item, index) => index}
-      />
     </View>
+    <View style={{ marginTop: 20, paddingLeft: 30, paddingBottom: 10, fontSize: 16 }}>
+      <Text>
+        © RED Academy 2017
+      </Text>  
+    </View>  
   </ScrollView>
 );
 
