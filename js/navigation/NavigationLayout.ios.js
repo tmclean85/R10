@@ -29,7 +29,7 @@ const defaultRouteConfig = {
           colors={[colors.red, colors.purple]}
           style={StyleSheet.absoluteFill}
         />
-      )  
+      )
     }
   }
 };
