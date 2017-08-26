@@ -14,30 +14,28 @@ import { styles } from './styles';
 
 const Sessions = ({ sessionData, speakerData, singleSpeaker }) => {
   return (
-    <View>
-      <View>
-        <Text>{sessionData.location}</Text>
-        <Text>{sessionData.title}</Text>
-        <Text>{Moment.unix(sessionData.start_time).format('h:mm A')}</Text>
-        <Text>{sessionData.description}</Text>
-        <Text>Presented by:</Text>
+    <View style={styles.sessionScene}>
+      <View style={styles.sessionHeader}>
+        <Text style={styles.sessionLocation} >{sessionData.location}</Text>
+        <Text style={styles.sessionTitle}>{sessionData.title}</Text>  
+        <Text style={styles.sessionTime}>{Moment.unix(sessionData.start_time).format('h:mm A')}</Text>                            
+        <Text style={styles.sessionBody}>{sessionData.description}</Text>
+        <Text style={styles.sessionLocation}>Presented by:</Text>
+        <TouchableOpacity onPress={() => goToSpeaker(speakerData)} >
+          <View style={styles.sessionSpeaker}>
+            <Image
+              style={styles.speakerAvatar}
+              source={{ uri: speakerData.image }}
+            />
+            <Text style={styles.speakerName}>{speakerData.name}</Text>   
+          </View>  
+        </TouchableOpacity>                             
       </View>
-      <TouchableOpacity onPress={() => goToSpeaker(speakerData)} >
-        <View>
-          <Text>{speakerData.name}</Text>
-          <Image
-            style={styles.speakerAvatar}
-            source={{ uri: speakerData.image }}
-          />        
-        </View>  
-      </TouchableOpacity>  
-      <View>
-      <Button
-        
-        title=""
-        color=""
-        accessibilityLabel=""
-      />
+      <View style={styles.buttonBox}>
+        <Button
+          title='Add to Faves'
+          onPress={() => console.log('hey')}
+        />
       </View>  
     </View>
   )
