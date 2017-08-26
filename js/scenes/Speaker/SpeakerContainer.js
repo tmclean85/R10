@@ -7,6 +7,11 @@ class SpeakerContainer extends Component {
   static route = {
     navigationBar: {
       title: 'About the Speaker',
+      backgroundColor: 'black',
+      color: 'white',
+      titleStyle: {
+        color: 'white'
+      }
     }
   }  
   
