@@ -19,7 +19,7 @@ const defaultRouteConfig = {
   navigationBar: {
     tintColor: colors.white,
     titleStyle: {
-      fontFamily: typography.fontMainLight
+      fontFamily: typography.fontMainLight,
     },
     renderBackground: gradient = () => {
       return (
