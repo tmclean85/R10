@@ -1,24 +1,25 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { View, Text } from 'react-native';
+import React from 'react';
+import MapView from 'react-native-maps';
 
-class Map extends Component {
+import { styles } from './styles';
 
-  static route = {
-    navigationBar: {
-      title: 'Map'
-    }
-  }
-
-  render(){
-    return(
-      <View>
-        <Text>
-          Dis map.
-        </Text>
-      </View>    
-    )  
-  }
-}
+const Map = () => {
+  return (
+    <MapView
+      style={styles.mapWrapper}
+      region={{
+        latitude: 49.263509,
+        longitude: -123.138117,
+        latitudeDelta: 0.0422,
+        longitudeDelta: 0.0221,
+      }}
+    >
+      <MapView.Marker
+        coordinate={{ latitude: 49.263509, longitude: -123.138117 }}
+        image={require('../../assets/images/map_pin.png')}
+      />
+    </MapView>
+  );
+};
 
 export default Map;
