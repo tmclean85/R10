@@ -5,8 +5,9 @@ import {
   Text,
   Image,
   ScrollView,
-  Button
+  Linking
 } from 'react-native';
+import Button from '../../components/Button';
 import { styles } from './styles';
 
 const Speaker = ({ speakerData }) => {
@@ -20,8 +21,8 @@ const Speaker = ({ speakerData }) => {
         <Text style={styles.speakerName}>{speakerData.name}</Text>
         <Text style={styles.speakerBio}>{speakerData.bio}</Text>
         <Button
-          title='Read More on Wikipedia'
-          onPress={() => console.log('hey')}        
+          text='Read More on Wikipedia'
+          onPress={() => Linking.openURL(speakerData.url).catch(err => ('There was an error', err))}        
         />        
       </View>
     </ScrollView>  
