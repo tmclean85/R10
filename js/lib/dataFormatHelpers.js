@@ -12,3 +12,4 @@ export const formatSessionData = (sessions) => {
     return acc;
   }, []).sort((a, b) => a.title - b.title);
 };
+

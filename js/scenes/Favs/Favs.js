@@ -5,13 +5,15 @@ import {
   Text
 } from 'react-native';
 
-import { styles } from './styles';
+import ScheduleList from '../../components/ScheduleList/';
 
-const Favs = () => {
+const Favs = ({ faveData, faveIds }) => {
   return (
-    <View>
-      <Text> This is the favs page </Text>
-    </View>
+    <ScheduleList
+      data={faveData}
+      faves={faveIds}
+      navigatorUID={'faves'}
+    />
   )
 }
 

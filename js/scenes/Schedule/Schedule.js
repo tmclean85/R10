@@ -4,32 +4,23 @@ import Moment from 'moment';
 import {
   View,
   Text,
+  ItemSeparatorComponent,
+  Platform,
   SectionList,
   TouchableOpacity
 } from 'react-native';
+import Icon from 'react-native-vector-icons/Ionicons';
+import { goToSession } from '../../lib/navigationHelpers';
+import ScheduleList from '../../components/ScheduleList/';
 import { styles } from './styles';
 
-const Schedule = ({ data, singleSession }) => {
+const Schedule = ({ data, singleSession, faveIds }) => {
   return (
     <View>
-      <SectionList
-        keyExtractor={(item) => (item.session_id)}
-        renderItem={({ item }) => (
-          <TouchableOpacity onPress={() => singleSession(item)} >
-            <View>
-              <View style={styles.sectionContent}>
-                <Text style={styles.titleText}>{item.title}</Text>
-              </View>  
-              <View style={styles.sectionFooter}>
-                <Text style={styles.locationText}>{item.location}</Text>
-              </View>  
-            </View>
-          </TouchableOpacity>
-        )}
-        renderSectionHeader={(item) => (
-          <Text style={styles.sectionHeader}>{Moment.unix(item.section.title).format('h:mm A')}</Text>
-        )}
-        sections={data}
+      <ScheduleList
+        data={data}
+        faves={faveIds}
+        navigatorUID={'schedule'}
       />
     </View>
   );

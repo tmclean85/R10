@@ -6,13 +6,15 @@ import {
   Text,
   FlatList,
   Image,
-  Button,
   TouchableOpacity,
 } from 'react-native';
+import { addFave, deleteFave } from '../../config/model';
+import Button from '../../components/Button/';
 import { goToSpeaker } from '../../lib/navigationHelpers';
 import { styles } from './styles';
 
-const Sessions = ({ sessionData, speakerData, singleSpeaker }) => {
+const Sessions = ({ sessionData, speakerData, singleSpeaker, faveIds }) => {
+  const foundFave = faveIds.find(faveId => faveId === sessionData.session_id);
   return (
     <View style={styles.sessionScene}>
       <View style={styles.sessionHeader}>
@@ -32,10 +34,22 @@ const Sessions = ({ sessionData, speakerData, singleSpeaker }) => {
         </TouchableOpacity>                             
       </View>
       <View style={styles.buttonBox}>
-        <Button
-          title='Add to Faves'
-          onPress={() => console.log('hey')}
-        />
+        {(speakerData)
+          ?       
+            <Button
+              text={
+                (foundFave)
+                  ? "Remove from Faves"
+                  : "Add to Faves"
+              }
+              onPress={
+                (foundFave)
+                  ? () => deleteFave(sessionData.session_id)
+                  : () => addFave(sessionData.session_id)
+              }
+            />
+          : null
+        }    
       </View>  
     </View>
   )
