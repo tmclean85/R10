@@ -8,7 +8,7 @@ export const styles = StyleSheet.create({
     paddingBottom: 5,
     marginBottom: 5,
     fontFamily: typography.fontMain,
-    backgroundColor: colors.lightGray
+    backgroundColor: colors.lightGray, 
   },
   sectionContent: {
     paddingLeft: 10,

@@ -13,7 +13,6 @@ import { getSpeakerData } from '../../redux/modules/sessions';
 class SessionsContainer extends Component {
   
   componentDidMount() {
-    console.log(getSpeakerData(this.props.sessionData.speaker));
     this.props.dispatch(getSpeakerData(this.props.sessionData.speaker));
   }
 
@@ -33,6 +32,7 @@ class SessionsContainer extends Component {
         <Sessions
           sessionData={this.props.sessionData}
           speakerData={this.props.speakerData}
+          faveIds={this.props.faveIds}
         />
       );
     }
@@ -43,7 +43,8 @@ class SessionsContainer extends Component {
 function mapStateToProps(state) {
   return {
     speakerData: state.session.speakerData,
-    loading: state.session.loading
+    loading: state.session.loading,
+    faveIds: state.faves.faveIds
   }
 }
 
