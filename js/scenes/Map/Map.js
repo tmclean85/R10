@@ -1,17 +1,24 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import {
-  View,
-  Text,
-} from 'react-native';
-import { styles } from './styles';
+import { View, Text } from 'react-native';
 
-const Map = () => {
-  return (
-    <View>
-      <Text>Dis map</Text>
-    </View>    
-  )
+class Map extends Component {
+
+  static route = {
+    navigationBar: {
+      title: 'Map'
+    }
+  }
+
+  render(){
+    return(
+      <View>
+        <Text>
+          Dis map.
+        </Text>
+      </View>    
+    )  
+  }
 }
 
 export default Map;
