@@ -4,6 +4,7 @@ import {
   NavigationProvider,
   StackNavigation,
 } from '@expo/ex-navigation';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { ActivityIndicator } from 'react-native';
 import Sessions from './Sessions';
@@ -47,5 +48,20 @@ function mapStateToProps(state) {
     faveIds: state.faves.faveIds
   }
 }
+
+SessionsContainer.propTypes = {
+  sessionData: PropTypes.shape({
+    description: PropTypes.string,
+    location: PropTypes.string,
+    session_id: PropTypes.string,
+    title: PropTypes.string,
+    start_time: PropTypes.number,
+    speaker: PropTypes.string
+  }),
+  speakerData: PropTypes.objectOf(PropTypes.string),
+  faveIds: PropTypes.arrayOf(PropTypes.string),
+  loading: PropTypes.bool,
+}
+
 
 export default connect(mapStateToProps)(SessionsContainer);

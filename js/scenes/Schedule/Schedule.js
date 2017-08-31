@@ -26,4 +26,16 @@ const Schedule = ({ data, singleSession, faveIds }) => {
   );
 };
 
+Schedule.PropTypes = {
+  goToSession: PropTypes.func,
+  faveIds: PropTypes.arrayOf(PropTypes.string),
+  data: PropTypes.arrayOf(PropTypes.shape({
+    title: PropTypes.string,
+    location: PropTypes.string,
+    speaker: PropTypes.string,
+    start_time: PropTypes.number,
+    session_id: PropTypes.string
+  })),
+}
+
 export default Schedule;

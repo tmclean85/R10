@@ -17,4 +17,17 @@ const Favs = ({ faveData, faveIds }) => {
   )
 }
 
+Favs.PropTypes = {
+  faveIds: PropTypes.arrayOf(PropTypes.string),
+  faveData: PropTypes.arrayOf(PropTypes.shape({
+    title: PropTypes.string,
+    location: PropTypes.string,
+    start_time: PropTypes.number,
+    description: PropTypes.string,
+    speaker: PropTypes.string,
+    session_id: PropTypes.string
+  }))
+}
+
+
 export default Favs;
