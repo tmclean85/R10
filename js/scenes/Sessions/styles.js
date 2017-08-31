@@ -10,6 +10,14 @@ export const styles = StyleSheet.create({
     borderBottomWidth: 1.5,
     borderColor: '#e6e6e6'    
   },
+  sessionFavBox: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center'
+  },
+  sessionFave: {
+    color: 'red'
+  },
   speakerAvatar: {
     width: 60, 
     height: 60,

@@ -7,8 +7,10 @@ import {
   FlatList,
   Image,
   TouchableOpacity,
-  ScrollView
+  ScrollView,
+  Platform
 } from 'react-native';
+import Icon from 'react-native-vector-icons/Ionicons';
 import { addFave, deleteFave } from '../../config/model';
 import Button from '../../components/Button/';
 import { goToSpeaker } from '../../lib/navigationHelpers';
@@ -20,7 +22,14 @@ const Sessions = ({ sessionData, speakerData, faveIds }) => {
     <ScrollView>
       <View style={styles.sessionScene}>
         <View style={styles.sessionHeader}>
-          <Text style={styles.sessionLocation} >{sessionData.location}</Text>
+          <View style={styles.sessionFavBox}>
+            <Text style={styles.sessionLocation} >{sessionData.location}</Text>
+            {
+              (faveIds.find(fave => fave === sessionData.session_id)) 
+                ? <Icon name={Platform.OS === 'ios' ? 'ios-heart' : 'md-heart'} size={17} style={styles.sessionFave} />
+                : null
+            }
+          </View>  
           <Text style={styles.sessionTitle}>{sessionData.title}</Text>  
           <Text style={styles.sessionTime}>{Moment.unix(sessionData.start_time).format('h:mm A')}</Text>                            
           <Text style={styles.sessionBody}>{sessionData.description}</Text>
