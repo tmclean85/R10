@@ -14,7 +14,7 @@ import Button from '../../components/Button/';
 import { goToSpeaker } from '../../lib/navigationHelpers';
 import { styles } from './styles';
 
-const Sessions = ({ sessionData, speakerData, singleSpeaker, faveIds }) => {
+const Sessions = ({ sessionData, speakerData, faveIds }) => {
   const foundFave = faveIds.find(faveId => faveId === sessionData.session_id);
   return (
     <ScrollView>
@@ -56,6 +56,19 @@ const Sessions = ({ sessionData, speakerData, singleSpeaker, faveIds }) => {
       </View>
     </ScrollView>  
   )
+}
+
+Sessions.propTypes = {
+  sessionData: PropTypes.shape({
+    description: PropTypes.string,
+    location: PropTypes.string,
+    session_id: PropTypes.string,
+    title: PropTypes.string,
+    start_time: PropTypes.number,
+    speaker: PropTypes.string
+  }),
+  speakerData: PropTypes.objectOf(PropTypes.string),
+  faveIds: PropTypes.arrayOf(PropTypes.string)
 }
 
 export default Sessions;

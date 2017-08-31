@@ -29,4 +29,8 @@ const Speaker = ({ speakerData }) => {
   )  
 }
 
+Speaker.PropTypes = {
+  speakerData: PropTypes.objectOf(PropTypes.string)
+}
+
 export default Speaker;

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { ActivityIndicator } from 'react-native';
 import Speaker from './Speaker';
 
@@ -13,16 +14,20 @@ class SpeakerContainer extends Component {
         color: 'white'
       }
     }
-  }  
+  }
   
   render() {
     return (
-      <Speaker 
+      <Speaker
         speakerData={this.props.speakerData}
       />
     );
   }
 
+}
+
+SpeakerContainer.PropTypes = {
+  speakerData: PropTypes.objectOf(PropTypes.string)
 }
 
 export default SpeakerContainer;
